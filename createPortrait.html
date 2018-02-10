@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自制头像组件</title>
+</head>
+<body>
+    <div class="root">
+        <div class="inputNode">
+
+        </div>
+        <div class="containerNode">
+
+        </div>
+        <div class="canvasNode">
+
+        </div>
+        <div class="submitNode">
+
+        </div>
+        <div class="resetNode">
+
+        </div>
+        <div class="diyNode"></div>
+    </div>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script src="./createPortrait.js"></script>
+    <script>
+        var options = {
+            rootNode: $('.root'),
+            input: {
+                inputNode: $('.inputNode')
+            },
+            imgContainer: {      //存储照片的容器
+                width: 300,
+                height: 300,
+                unloadImgUrl: './unload.png', //没有加载图片时的占位图
+                containerNode: $('.containerNode')
+            },
+            canvas: {          //canvas用于生成最后的图片，所以canvas宽高也就是图片的宽高
+                width: 150,
+                height: 150,
+                canvasNode: $('.canvasNode')
+            },
+            submit: {
+                isNeed: false,   //是否需要提交按钮
+                submitNode: $('.submitNode')
+            },
+            reset: {
+                isNeed: false,  //是否需要重置按钮
+                resetNode: $('resetNode')
+            },
+            isDiy: {
+                isNeed: false, //是否需要自定义宽高
+                diyNode: $('.diyNode')
+            }
+
+        }
+        var portrait = new Portrait(options);
+        portrait.trigger();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    #box {
+        height:300px;
+        width:300px;
+        background-color: #17c093;
+        margin-left:200px;
+        margin-top:150px;
+    }
+</style>
+
+<div id="box">
+
+</div>
+
+<script src="./jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+
+//    var Car = function(color,door){
+//        var ocar = new Object;
+//        ocar.color = color;
+//        ocar.doors = door;
+//        console.info(color,"++",door)
+//        var showColor = function(){
+//            document.write(ocar.color)
+//        };
+//        showColor();
+//        this.abc = function(){
+//            var _this = this;
+//            console.info(this.abc);
+//
+//        }
+//        this.abc()
+////        return ocar;
+//    }
+//    var car3 = Car("red",4);
+//    var car1 = new Car("red",4);
+//    car1.abc();
+
+//    var a = function () {
+//        var c = function(){
+//            console.info("c")
+//        }
+//        return b;
+//    }
+//    var b = function () {
+//
+//    }
+//    d = new a();
+//    window.c()
+//
+//    console.info(c,d)
+
+    $.fn.talk = function () {
+
+        console.info("talked",this)
+    }
+    $.prototype.ptalk = function () {
+        console.info("prototype talked",this)
+    }
+//    $.talk();
+    $(document).talk();
+    $(document).ptalk()
+
+    $.fn.extend({
+        //judge whether event occur inside the box
+        "isInside": function (event) {
+            if (!event || !event.clientX || !event.clientY) {
+                return false;
+            }
+            var x = event.clientX;
+            var y = event.clientY;
+            var left = $(this).offset().left;
+            var top = $(this).offset().top;
+            var right = left + $(this).width();
+            var bottom = top + $(this).height();
+            return x>=left && x <= right && y >= top && y <= bottom;
+        },
+        //judge whether event occur around the east-south corner of the box
+        "isEastSouth":function (event, gap) {
+            if (!event || !event.clientX || !event.clientY) {
+                return false;
+            }
+            var x = event.clientX;
+            var y = event.clientY;
+            var left = $(this).offset().left;
+            var top = $(this).offset().top;
+            var right = left + $(this).width();
+            var bottom = top + $(this).height();
+            return x>=(right-gap) && x <= right && y >= (bottom-gap) && y <= bottom;
+        }
+    })
+    $(document).on("mousemove",function () {
+        var _event = event;
+        console.info($("#box").isEastSouth(_event,30));
+    })
+
+</script>
+</body>
+</html>

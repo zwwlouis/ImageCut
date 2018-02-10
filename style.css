@@ -1,0 +1,111 @@
+img {
+    pointer-events: none;
+}
+.img-container-outer{
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+} 
+
+
+.img-container-inner {
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.6);
+    display: none;
+}
+.img-container-outer-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+.img-container-outer {
+	border: 1px solid #9baab3;
+	margin: 10px 0px;
+	width: 298px;
+	height: 298px;
+	position: relative;
+}
+.portrait-container .submit {
+	width: 300px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	font-size: 18px;
+	background-color: #f0f0f0;
+	color: black;
+	cursor: pointer;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	display: none;
+}
+.portrait-container .reset {
+	width: 300px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	font-size: 18px;
+	background-color: #f0f0f0;
+	color: black;
+	cursor: pointer;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	display: none;
+}
+
+.img-container {
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+}
+.img-container-inner .drag-icon {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	background-color: rgba(255,255,255,0.5);
+	background: url('./drag.png') 0 0 no-repeat;
+	background-size: cover;
+	z-index: 9;
+}
+.img-container  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+	width: 298px;
+	height: 298px;
+}
+
+div.pixel {
+	float: right;
+	font-size: 10px;
+	line-height: 10px;
+}
+.diy-portrait span {
+	cursor: pointer;
+	background-color: #d7d7d7;
+	margin-top: 10px;
+
+}
+.small-pic-container {
+	float: left;
+	text-align: center;
+	margin: 10px 0;
+}
+
+.portrait-container {
+	width: 800px;
+	height: 470px;
+	position: relative;
+	margin: 0 auto;
+}
