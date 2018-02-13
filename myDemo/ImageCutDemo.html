@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link href="imgCutStyle.css" rel="stylesheet" type="text/css">-->
+</head>
+<body>
+<div class="root">
+    <input id="image" type='file' name='multipart' value='file' accept='image/jpeg,image/jpg,image/png'>
+    <div>
+        <div class="containerNode" style="display: inline-block">
+
+        </div>
+        <div class="canvasNode" style="display: inline-block">
+
+        </div>
+    </div>
+
+    <div class="submitNode">
+
+    </div>
+    <input type="checkbox" id="keepRatio"/>保持宽高比
+    <button id="submit" style="margin-left: 50px">上传图片</button>
+</div>
+
+<script src="../jquery-3.2.1.min.js"></script>
+<script src="http://static.wanmei.com/security/js/ImageCut.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        var imgCut = new ImageCut(".containerNode", {
+            fileInput: "#image",
+            submitBtn:"#submit",
+            preview:".canvasNode",
+            callback:callback
+        })
+        imgCut.init();
+        $("#keepRatio").prop("checked",true);
+        $("#keepRatio").change(function () {
+            imgCut.setReshape(!$(this).prop("checked"));
+        })
+    })
+
+    function callback(data){
+        console.info(data);
+    }
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

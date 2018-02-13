@@ -22,52 +22,24 @@
 <script src="./jquery-3.2.1.min.js"></script>
 
 <script type="text/javascript">
-
-//    var Car = function(color,door){
-//        var ocar = new Object;
-//        ocar.color = color;
-//        ocar.doors = door;
-//        console.info(color,"++",door)
-//        var showColor = function(){
-//            document.write(ocar.color)
-//        };
-//        showColor();
-//        this.abc = function(){
-//            var _this = this;
-//            console.info(this.abc);
-//
-//        }
-//        this.abc()
-////        return ocar;
-//    }
-//    var car3 = Car("red",4);
-//    var car1 = new Car("red",4);
-//    car1.abc();
-
-//    var a = function () {
-//        var c = function(){
-//            console.info("c")
-//        }
-//        return b;
-//    }
-//    var b = function () {
-//
-//    }
-//    d = new a();
-//    window.c()
-//
-//    console.info(c,d)
-
-    $.fn.talk = function () {
-
-        console.info("talked",this)
+    Function.prototype.bind = function () {
+        var test = arguments;
+        var type = typeof arguments;
+        var self = this,
+            context = [].shift.call(arguments),
+            args = [].slice.call(arguments);
+        return function () {
+            return self.apply(context,[].concat.call(args,[].slice.call(arguments)));
+        }
     }
-    $.prototype.ptalk = function () {
-        console.info("prototype talked",this)
-    }
-//    $.talk();
-    $(document).talk();
-    $(document).ptalk()
+    var obj = {
+        name:'sven'
+    };
+    var func = function (a,b,c,d) {
+        alert(this.name);
+        alert([a,b,c,d]);
+    }.bind(obj,obj,1,2);
+    func(3,4)
 
     $.fn.extend({
         //judge whether event occur inside the box
@@ -97,10 +69,10 @@
             return x>=(right-gap) && x <= right && y >= (bottom-gap) && y <= bottom;
         }
     })
-    $(document).on("mousemove",function () {
-        var _event = event;
-        console.info($("#box").isEastSouth(_event,30));
-    })
+//    $(document).on("mousemove",function () {
+//        var _event = event;
+//        console.info($("#box").isEastSouth(_event,30));
+//    })
 
 </script>
 </body>

@@ -1,0 +1,55 @@
+.fullfill {
+	width: 100%;
+	height: 100%
+}
+
+.img-container-outer {
+	border: 1px solid #9baab3;
+	/*margin: 10px 0px;*/
+	position: relative;
+}
+
+.img-container-outer {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.img-container-outer img {
+	position: absolute;
+}
+
+.img-container-wrap {
+	position: absolute;
+}
+
+.img-container-inner {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: absolute;
+}
+
+.img-container {
+	overflow: hidden;
+	position: absolute;
+	cursor:move;
+}
+
+.img-container-inner .drag-icon {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	cursor:se-resize;
+	background-color: rgba(255, 255, 255, 0.5);
+	background: url('../drag.png') 0 0 no-repeat;
+	background-size: cover;
+	z-index: 9;
+}
+
+img {
+	pointer-events: none;
+}
+
